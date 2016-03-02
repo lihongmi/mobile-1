@@ -7,8 +7,6 @@
     <meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="shortcut icon" href="image/icon.ico" type="image/x-icon" sizes="">
-	<link type="text/css" href="">
-	<script src=""></script>
 	<style type="text/css">
 		/* IE8以下不支持rem单位  */
 		*{margin:0;padding:0;border:0;outline:none;
@@ -102,6 +100,16 @@
   					var touchend = "ontouchend" in window ? "touchend" : "mouseup";
   					var next = document.getElementById("next");
   					var quit = document.getElementById("quit");
+					quit.addEventListener(touchstart, function(event){
+  						var event = event || window.event;
+  						var target = event.srcElement || event.target;
+  						target.style.backgroundColor='#3ff';
+  					}, false);
+  					quit.addEventListener(touchend, function(event){
+  						var event = event || window.event;
+  						var target = event.srcElement || event.target;
+  						target.style.backgroundColor='#FFA500';
+  					}, false);
   					next.addEventListener(touchstart, function(event){
   						var event = event || window.event;
   						var target = event.srcElement || event.target;
@@ -111,19 +119,8 @@
   						var event = event || window.event;
   						var target = event.srcElement || event.target;
   						target.style.backgroundColor='rgb(57, 112, 166)';
-  						
-  						//验证
   					}, false);
-  					quit.addEventListener(touchstart, function(event){
-  						var event = event || window.event;
-  						var target = event.srcElement || event.target;
-  						target.style.backgroundColor='#3ff';
-  					}, false);
-  					quit.addEventListener(touchend, function(){
-  						var event = event || window.event;
-  						var target = event.srcElement || event.target;
-  						target.style.backgroundColor='rgb(243, 165, 40)';
-  					}, false);
+  					
   				</script>
   			</form>
 		</div>
